@@ -4,10 +4,10 @@ MAINTAINER Adam Avilla <aavilla@yp.com>
 
 
 # Install Ceph.
-ENV CEPH_VERSION infernalis
-RUN curl -sSL 'https://ceph.com/git/?p=ceph.git;a=blob_plain;f=keys/release.asc' | \
+ENV CEPH_VERSION jewel 
+RUN curl -sSL 'https://download.ceph.com/keys/release.asc' | \
     apt-key add - && \
-    echo deb http://ceph.com/debian-${CEPH_VERSION}/ jessie main | \
+    echo deb http://download.ceph.com/debian-${CEPH_VERSION}/ jessie main | \
     tee /etc/apt/sources.list.d/ceph-${CEPH_VERSION}.list && \
     apt-get update && \
     apt-get install -y --force-yes \
